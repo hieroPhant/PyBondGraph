@@ -15,9 +15,11 @@ A simple Python BondGraph class, demonstrating the essential
 facts and functionalities of BondGraph.
 
 """
+from Extras.enum import Enum
 import itertools
 from graphClass import Graph
-        
+from BGconstants import *
+
 #<<<----------------------------------------------------->>>#
         
 class BGcomponent( object ):
@@ -204,5 +206,25 @@ if __name__ == "__main__":
     
     print '------------------------------------'
 
+    for (key,val,name) in BGelementSymbols:
+        print 'BGelementSymbols[%2s] = %s <- %s' % (key, val, name)
+
+    print '------------------------------------'
+        
+    print 'BondType.Signal[%s] = %s' % (BondType.Signal[0], BondType.Signal[1])
+    print 'BondType.Power[%s]  = %s' % (BondType.Power[0], BondType.Power[1])
+
+    print '------------------------------------'
+
+
     print '\n\n ... done!'
     
+#
+# NEXT: draw graph
+#    pos=nx.spring_layout(G) # positions for all nodes
+#
+#    # nodes
+#    nx.draw_networkx_nodes(G,pos,node_size=700)
+
+
+
