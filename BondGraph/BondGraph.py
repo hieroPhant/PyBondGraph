@@ -234,15 +234,15 @@ class BondGraph( BGbond, BGelement, Graph ):
 #
 
 if __name__ == "__main__":
-    print 'BGcomponent::\n' \
+    print('BGcomponent::\n' \
           'Tried to execute BonGraph.py module\n' \
-          '(with PyBondGraph classes definitions)'
+          '(with PyBondGraph classes definitions)')
           
-    print '\n\n'
-    print '------------------------------------'
-    print '--------> BGcomponents <------------'
-    print '------------------------------------'
-    print '\n\n'
+    print('\n\n')
+    print('------------------------------------')
+    print('--------> BGcomponents <------------')
+    print('------------------------------------')
+    print('\n\n')
 
     bgc0  = BGcomponent()
     bgc1  = BGcomponent('F','FlowSource')
@@ -254,16 +254,16 @@ if __name__ == "__main__":
     bgcs = [bgc0, bgc1, bgc2, bgc3, bgc4, bgc5]
     
     for bgc in bgcs:
-        print '------------------------------------'
-        print bgc
+        print('------------------------------------')
+        print(bgc)
     
-    print '------------------------------------'
+    print('------------------------------------')
 
-    print '\n\n'
-    print '------------------------------------'
-    print '----------> BGbonds <---------------'
-    print '------------------------------------'
-    print '\n\n'
+    print('\n\n')
+    print('------------------------------------')
+    print('----------> BGbonds <---------------')
+    print('------------------------------------')
+    print('\n\n')
 
     bgb0  = BGbond()
     bgb1  = BGbond(0,1)
@@ -272,58 +272,59 @@ if __name__ == "__main__":
     bgbs = [bgb0, bgb1, bgb2]
     
     for bgb in bgbs:
-        print '------------------------------------'
-        print bgb
+        print('------------------------------------')
+        print(bgb)
     
-    print '------------------------------------'
+    print('------------------------------------')
    
-    print '\n\n'
-    print '------------------------------------'
-    print '---------> BGelements <-------------'
-    print '------------------------------------'
-    print '\n\n'
+    print('\n\n')
+    print('------------------------------------')
+    print('---------> BGelements <-------------')
+    print('------------------------------------')
+    print('\n\n')
 
     bge0  = BGelement()
     bge1  = BGelement('E','EffortSource',[1,3])
     bge2  = BGelement('1','OneJunction',[2,4])
+    bge3  = BGelement('C','Capacitor',[2,7])
 
-    bges = [bge0, bge1, bge2]
+    bges = [bge0, bge1, bge2, bge3]
     
     for bge in bges:
-        print '------------------------------------'
-        print bge
+        print('------------------------------------')
+        print(bge)
     
-    print '------------------------------------'
+    print('------------------------------------')
 
-    bge1.setVariable('x')
-    bge1.setStateEquation('dx/dt = -2*cos(x)')
-    bge1.setOutputEquation('y = x**2')
+    bge3.setVariable('x')
+    bge3.setStateEquation('dx/dt = -2*cos(x)')
+    bge3.setOutputEquation('y = x**2')
 
-    print ' Element bge1 variable: %s' % bge1.getVariable()
-    print ' Element bge1 state equation: %s' % bge1.getStateEquation()
-    print ' Element bge1 output equation: %s' % bge1.getOutputEquation()
+    print(' Element bge1 variable: %s' % bge3.getVariable())
+    print(' Element bge1 state equation: %s' % bge3.getStateEquation())
+    print(' Element bge1 output equation: %s' % bge3.getOutputEquation())
    
-    print '------------------------------------'
+    print('------------------------------------')
 
-    print bgc1.is_defined(bgc1)
-    print bgb1.is_defined(bgb1)
-    print bge1.is_defined(bge1)
+    print('bgc1.is_defined(bgc1)',bgc1.is_defined(bgc1))
+    print('bgb1.is_defined(bgb1)',bgb1.is_defined(bgb1))
+    print('bge1.is_defined(bge1)',bge1.is_defined(bge1))
     
-    print '------------------------------------'
+    print('------------------------------------')
 
     for (key,val,name) in BGelementSymbols:
-        print 'BGelementSymbols[%2s] = %s <- %s' % (key, val, name)
+        print('BGelementSymbols[%2s] = %s <- %s' % (key, val, name))
 
-    print '------------------------------------'
+    print('------------------------------------')
         
-    print 'BondType.Signal[%s] = %s' % (BondType.Signal[0], BondType.Signal[1])
-    print 'BondType.Power[%s]  = %s' % (BondType.Power[0], BondType.Power[1])
+    print('BondType.Signal[%s] = %s' % (BondType.Signal[0], BondType.Signal[1]))
+    print('BondType.Power[%s]  = %s' % (BondType.Power[0], BondType.Power[1]))
 
-    print '\n\n'
-    print '------------------------------------'
-    print '---------> BondGraphs <-------------'
-    print '------------------------------------'
-    print '\n\n'
+    print('\n\n')
+    print('------------------------------------')
+    print('---------> BondGraphs <-------------')
+    print('------------------------------------')
+    print('\n\n')
     
     Bgraph = Graph()
     bg0  = BondGraph()
@@ -337,10 +338,10 @@ if __name__ == "__main__":
     bgb9  = BGbond(4,5)
     
     bge5  = BGelement('E','EffortSource',[2,2])
-    bge6  = BGelement('E','EffortSource',[2,3])
-    bge7  = BGelement('E','EffortSource',[3,1])
-    bge8  = BGelement('E','EffortSource',[4,5])
-    bge9  = BGelement('E','EffortSource',[3,5])
+    bge6  = BGelement('1','OneJunction',[2,3])
+    bge7  = BGelement('T','Transformer',[3,1])
+    bge8  = BGelement('0','ZeroJunction',[4,5])
+    bge9  = BGelement('C','Capacitor',[3,5])
 
     bg2  = BondGraph(BondsList = [bgb5, bgb6, bgb7, bgb8, bgb9], 
                      ElementsList = [bge5, bge6, bge7, bge8, bge9], 
@@ -349,30 +350,30 @@ if __name__ == "__main__":
     bgs = [bg0, bg1, bg2]
 
     for bg in bgs:
-        print '<<<<<<<<--------====-------->>>>>>>>\n'
-        print bg
+        print('<<<<<<<<--------====-------->>>>>>>>\n')
+        print(bg)
     
-#    print '------------------------------------'
+#    print('------------------------------------'
 #
 #    bge1.setVariable('x')
 #    bge1.setStateEquation('dx/dt = -2*cos(x)')
 #    bge1.setOutputEquation('y = x**2')
 #
-#    print ' BG:Element bge1 variable: %s' % bge1.getVariable()
-#    print ' BG:Element bge1 state equation: %s' % bge1.getStateEquation()
-#    print ' BG:Element bge1 output equation: %s' % bge1.getOutputEquation()
+#    print(' BG:Element bge1 variable: %s' % bge1.getVariable()
+#    print(' BG:Element bge1 state equation: %s' % bge1.getStateEquation()
+#    print(' BG:Element bge1 output equation: %s' % bge1.getOutputEquation()
 #   
-    print '*********************************'
-    print '*-------------------------------*'
-    print '*-----*****---*---*---****------*'
-    print '*-----*-------**--*---*---*-----*'
-    print '*-----***-----*-*-*---*---*-----*'
-    print '*-----*-------*--**---*---*-----*'
-    print '*-----*****---*---*---****------*'
-    print '*-------------------------------*'
-    print '*********************************'
+    print('*********************************')
+    print('*-------------------------------*')
+    print('*-----*****---*---*---****------*')
+    print('*-----*-------**--*---*---*-----*')
+    print('*-----***-----*-*-*---*---*-----*')
+    print('*-----*-------*--**---*---*-----*')
+    print('*-----*****---*---*---****------*')
+    print('*-------------------------------*')
+    print('*********************************')
 
-    print '\n\n ... done!'
+    print('\n\n ... done!')
     
 #
 # NEXT: draw graph
